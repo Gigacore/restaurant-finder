@@ -1,2 +1,2 @@
 # restaurant-finder
-A restaurant finder using React and Zomato API
+A restaurant finder using React with Zomato and Google Maps API

@@ -4,6 +4,11 @@
 		"commonjs": true,
 		"es6": true
 	},
+	"settings": {
+		"react": {
+			"version": "999.999.999"
+		}
+	},
 	"extends": [
 		"plugin:react/recommended"
 	],

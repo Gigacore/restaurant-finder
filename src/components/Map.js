@@ -37,9 +37,6 @@ class Map extends Component {
     });
 
     detectLocation.then((location) => {
-
-      console.log(location);
-
       const coords = {
         lat: location.latitude,
         lng: location.longitude,
