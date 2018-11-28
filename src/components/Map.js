@@ -11,7 +11,9 @@ class Map extends Component {
 
   componentDidMount() {
     window.initMap = this.initMap;
-    loadjs("https://maps.googleapis.com/maps/api/js?key=AIzaSyCm81g_wojVpaZFjbiflmKL7lBtlcxio40&libraries=places&callback=initMap");
+    const API_KEY = "xxx"; // Google Maps API Key
+
+    loadjs(`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`);
 
     const detectLocation = new Promise((resolve,reject) => {
       if ("geolocation" in navigator) {

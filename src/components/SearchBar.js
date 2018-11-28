@@ -14,14 +14,19 @@ import PropTypes from "prop-types";
 
   render() {
     return (
-      <input
-        id="pac-input"
-        type="text"
-        placeholder="Enter a location"
-        onBlur={this.handleInput}
-        ref={this.locationInput}
-        onKeyPress={this.onkeyPress}
-      />
+      <div className="search-bar">
+        <span className="input-wrapper">
+          <input
+            id="pac-input"
+            type="text"
+            placeholder="Enter a location"
+            onBlur={this.handleInput}
+            ref={this.locationInput}
+            onKeyPress={this.onkeyPress}
+          />
+        </span>
+        {/* <button value="locate" id="locate-user" /> */}
+      </div>
     );
   }
 }

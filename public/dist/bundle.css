@@ -58,6 +58,13 @@ body {
   width: 100%;
   overflow-x: hidden; }
 
+@font-face {
+  font-family: 'icomoon';
+  src: url(fonts/icomoon.eot);
+  src: url(fonts/icomoon.eot#iefix) format("embedded-opentype"), url(fonts/icomoon.ttf) format("truetype"), url(fonts/icomoon.woff) format("woff"), url(fonts/icomoon.svg#icomoon) format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 #map {
   width: 100%;
   position: absolute;
@@ -65,16 +72,21 @@ body {
   display: block;
   margin: 0 auto; }
 
+.search-bar {
+  display: flex;
+  margin: 10px 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
 input#pac-input {
-  max-width: 600px;
-  width: 95%;
-  margin: 10px auto;
+  width: 100%;
   display: block;
   height: 40px;
-  font-size: 22px;
+  font-size: 18px;
   background: #e57373;
   border: none;
-  padding: 5px 20px;
+  padding: 5px 20px 5px 50px;
   color: #fff;
   border-radius: 5px;
   font-family: 'Nunito', sans-serif;
@@ -83,8 +95,50 @@ input#pac-input {
 input#pac-input::placeholder {
   color: #fff; }
 
+.input-wrapper {
+  position: relative;
+  max-width: 580px;
+  width: 100%;
+  display: block; }
+  .input-wrapper:before {
+    font-family: 'icomoon' !important;
+    content: "\E986";
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    color: #fff;
+    left: 15px;
+    top: 15px;
+    font-size: 18px; }
+
+button#locate-user {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 0 10px;
+  background: #b71c1c;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: block; }
+  button#locate-user:before {
+    font-family: 'icomoon' !important;
+    content: "\EA54";
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    color: #fff;
+    left: 15px;
+    top: 15px;
+    font-size: 20px; }
+
 @media only screen and (max-width: 64em) {
   input#pac-input {
     width: 80%;
     height: 26px;
-    font-size: 18px; } }
+    font-size: 18px; }
+  .input-wrapper {
+    width: 90%; }
+    .input-wrapper:before {
+      font-size: 16px;
+      top: 9px; } }
