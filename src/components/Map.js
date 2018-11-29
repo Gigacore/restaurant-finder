@@ -16,7 +16,7 @@ class Map extends Component {
 
   componentDidMount() {
     window.initMap = this.initMap;
-    const API_KEY = "AIzaSyCm81g_wojVpaZFjbiflmKL7lBtlcxio40"; // Google Maps API Key
+    const API_KEY = "xxx"; // Google Maps API Key
 
     loadjs(`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`);
 
