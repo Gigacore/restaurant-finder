@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import loadjs from "loadjs";
+
+import NoResults from "./NoResults";
 
 class Map extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      hasNoResults: false
+    };
   };
 
   componentDidMount() {
     window.initMap = this.initMap;
-    const API_KEY = "xxx"; // Google Maps API Key
+    const API_KEY = "AIzaSyCm81g_wojVpaZFjbiflmKL7lBtlcxio40"; // Google Maps API Key
 
     loadjs(`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`);
 
@@ -44,7 +49,7 @@ class Map extends Component {
 
       this.props.fetchRestaurants(coords);
     }).catch(() => {
-      console.error(err);
+      console.log(err);
     });
   }
 
@@ -56,10 +61,15 @@ class Map extends Component {
 
   initMap = data => {
     if(data && data.nearby_restaurants) {
+
+      this.setState({
+        hasNoResults: false
+      });
+
       const spawnPos = {lat: parseFloat(data.nearby_restaurants[0].restaurant.location.latitude), lng: parseFloat(data.nearby_restaurants[0].restaurant.location.longitude)};
 
       const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 14,
+        zoom: 15,
         center: spawnPos
       });
 
@@ -99,18 +109,29 @@ class Map extends Component {
           lng: placeResult.geometry.location.lng(),
         });
 
-        if (place.geometry.viewport) {
+        if (placeResult.geometry.viewport) {
           map.fitBounds(placeResult.geometry.viewport);
         } else {
           map.setCenter(placeResult.geometry.location);
-          map.setZoom(17);  // Why 17? Because it looks good.
+          map.setZoom(17);
         }
+      });
+    } else if(data === "error") {
+      this.setState({
+        hasNoResults: true
       });
     }
   };
 
   render() {
-    return <div id="map"></div>;
+    return (
+      <React.Fragment>
+        <div id="map"></div>
+        {this.state.hasNoResults && (
+          <NoResults />
+        )}
+      </React.Fragment>
+    );
   }
 }
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
  class SearchBar extends Component {
 
   constructor(props) {
@@ -33,10 +32,6 @@ import PropTypes from "prop-types";
 
 SearchBar.propTypes = {
   fetchRestaurants: PropTypes.func,
-};
-
-SearchBar.defaultProps = {
-  resetLabel: "RESET",
 };
 
 export default SearchBar;

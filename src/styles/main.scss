@@ -151,6 +151,20 @@ button#locate-user {
   }
 }
 
+.no-results {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 64em) {
   input#pac-input {
     width: 80%;
