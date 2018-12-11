@@ -19,8 +19,6 @@ import PropTypes from "prop-types";
             id="pac-input"
             type="text"
             placeholder="Enter a location"
-            onBlur={this.handleInput}
-            ref={this.locationInput}
             onKeyPress={this.onkeyPress}
           />
         </span>

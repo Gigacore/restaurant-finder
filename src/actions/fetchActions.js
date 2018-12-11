@@ -9,7 +9,7 @@ export const fetchData = locationData => (dispatch) => {
 
   return axios.get(endPoint, {
     headers: {
-      "user-key": "xxx" // Zomato API Key
+      "user-key": "bb5e0e240f8a6998a155cc663e6d9138" // Zomato API Key
     }
   })
   .then((response) => {

@@ -78,7 +78,7 @@ body {
   width: 100%;
   position: absolute;
   height: 90%;
-  display: block;
+  display: flex;
   margin: 0 auto;
 }
 
@@ -180,4 +180,9 @@ button#locate-user {
       top: 9px;
     }
   }
+}
+
+.loading {
+  color: #fff;
+  font-size: 14px;
 }

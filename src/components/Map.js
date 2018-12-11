@@ -16,7 +16,7 @@ class Map extends Component {
 
   componentDidMount() {
     window.initMap = this.initMap;
-    const API_KEY = "xxx"; // Google Maps API Key
+    const API_KEY = "AIzaSyCm81g_wojVpaZFjbiflmKL7lBtlcxio40"; // Google Maps API Key
 
     loadjs(`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initMap`);
 
@@ -97,12 +97,6 @@ class Map extends Component {
       autocomplete.addListener("place_changed", () => {
         const placeResult = autocomplete.getPlace();
 
-        // If the user hits enter without selecting a place from result, display a prompt.
-        if (!placeResult.geometry) {
-          window.alert("No details available for input: '" + placeResult.name + "'. Please select a place from the result.");
-          return;
-        }
-
         // Gather the user provided / automatically fetched location and fetch the restaurants.
         populateRestaurants({
           lat: placeResult.geometry.location.lat(),
@@ -126,7 +120,9 @@ class Map extends Component {
   render() {
     return (
       <React.Fragment>
-        <div id="map"></div>
+        <div id="map">
+          <p className="loading">loading...</p>
+        </div>
         {this.state.hasNoResults && (
           <NoResults />
         )}
