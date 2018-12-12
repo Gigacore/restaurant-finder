@@ -121,7 +121,9 @@ class Map extends Component {
     return (
       <React.Fragment>
         <div id="map">
-          <p className="loading">loading...</p>
+          <div className="loader-container">
+            <p className="loading">loading...</p>
+          </div>
         </div>
         {this.state.hasNoResults && (
           <NoResults />

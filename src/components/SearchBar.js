@@ -7,10 +7,6 @@ import PropTypes from "prop-types";
     this.locationInput = React.createRef();
   };
 
-  onkeyPress = e => {
-    e.key === "Enter" ? console.log("entered") : null;
-  }
-
   render() {
     return (
       <div className="search-bar">
@@ -19,10 +15,8 @@ import PropTypes from "prop-types";
             id="pac-input"
             type="text"
             placeholder="Enter a location"
-            onKeyPress={this.onkeyPress}
           />
         </span>
-        {/* <button value="locate" id="locate-user" /> */}
       </div>
     );
   }
